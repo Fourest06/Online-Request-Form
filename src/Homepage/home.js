@@ -14,15 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const aboutLink = document.getElementById('about-link');
     let currentPage = window.location.pathname.split("/").pop();
 
-    if (currentPage === '' || currentPage === 'home.html' || window.location.pathname === '/home') {
+    if (currentPage === '/' || currentPage.includes('home')) {
         if (homeLink) {
-            homeLink.classList.add('text-yellow-500', 'font-bold', 'after:w-full', 'after:-translate-x-1/2'); 
+            homeLink.classList.add('text-yellow-500', 'font-bold', 'after:w-full', 'after:-translate-x-1/2');
         }
     } 
     
-    if (currentPage === 'about' || currentPage === 'about.html' || window.location.pathname === '/about') {
+    if (currentPage.includes('about')) {
         if (aboutLink) {
-            aboutLink.classList.add('text-yellow-500', 'font-bold', 'after:w-full', 'after:-translate-x-1/2'); 
+            aboutLink.classList.add('text-yellow-500', 'font-bold', 'after:w-full', 'after:-translate-x-1/2');
         }
     }
 });
