@@ -133,19 +133,28 @@ document.getElementById('level').addEventListener('change', function() {
 
 document.addEventListener("DOMContentLoaded", function () {
     let storedLevel = localStorage.getItem("userLevel");
+    let storedGrade = localStorage.getItem("userGrade");
+    let storedStrand = localStorage.getItem("userStrand");
 
     if (storedLevel) {
-        document.getElementById("level").dispatchEvent(new Event("change"));
+        document.getElementById("level").value = storedLevel;
+        document.getElementById("level").dispatchEvent(new Event("change")); 
     }
 
-    setTimeout(() => {
-        document.getElementById("grade").dispatchEvent(new Event("change"));
-    }, 100);
+    if (storedGrade) {
+        setTimeout(() => {
+            document.getElementById("grade").value = storedGrade;
+            document.getElementById("grade").dispatchEvent(new Event("change")); 
+        }, 100);
+    }
 
-    setTimeout(() => {
-        document.getElementById("strand").dispatchEvent(new Event("change"));
-    }, 200);
+    if (storedStrand) {
+        setTimeout(() => {
+            document.getElementById("strand").value = storedStrand;
+        }, 200);
+    }
 });
+
 
 let globalName = "";
 let globalAge = "";
