@@ -160,7 +160,7 @@ function updateDocumentTracker() {
     console.log(documentTracker);  
 }
 
-// Reset
+// Clear
 document.getElementById('resetBtn').addEventListener('click', function() {
     const formFields = [
         'form137JHS', 'form137SHS', 'form138JHS', 'form138SHS', 'formREG', 'certCOC', 'certCCG', 'certCGSHS', 'certCGC', 'certCGC', 'certCE', 'ctcform137JHS', 'ctcform137SHS', 'ctcform138JHS', 'ctcform138SHS', 'ctcformREG', 'ctccertCOC', 'ctccertCCG', 'ctccertCGSHS', 'ctccertCGC', 'ctccertCE'
@@ -176,6 +176,8 @@ document.getElementById('resetBtn').addEventListener('click', function() {
 
     document.getElementById('total-items').innerText = '0';
     document.getElementById('totalPriceDisplay').innerText = '0.00';
+    totalPrice = 0;
+    totalItems = 0;
 
     for (const key in documentTracker) {
         if (documentTracker.hasOwnProperty(key)) {
