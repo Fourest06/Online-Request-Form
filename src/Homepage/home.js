@@ -336,14 +336,14 @@ function sendEmail(userDetails, documentList, totalItemsCount, totalPriceAmount)
         total_price: totalPriceAmount,
     };
 
-    emailjs.send('service_vun601g', 'template_zwmg7v8', templateParams)
+    emailjs.send('service_vun601g', 'template_g1jich8', templateParams)
     .then(response => {
         console.log('Email sent successfully', response);
     }).catch(error => {
         console.error('Error sending email', error);
     });
 
-    emailjs.send('service_vun601g', 'template_mrrmybu', userParams)
+    emailjs.send('service_vun601g', 'template_171kcpb', userParams)
     .then(response => {
         console.log('User confirmation email sent successfully', response);
     }).catch(error => {
