@@ -12,12 +12,18 @@ const globalStrand = localStorage.getItem("userStrand");
 document.addEventListener('DOMContentLoaded', () => {
     const homeLink = document.getElementById('home-link');
     const aboutLink = document.getElementById('about-link');
-    const currentPage = window.location.pathname.split("/").pop(); 
+    let currentPage = window.location.pathname.split("/").pop();
 
-    if (currentPage === 'home.html') {
-        homeLink.classList.add('text-yellow-500', 'font-bold', 'after:w-full', 'after:-translate-x-1/2'); 
-    } else if (currentPage === 'about.html') {
-        aboutLink.classList.add('text-yellow-500', 'font-bold', 'after:w-full', 'after:-translate-x-1/2'); 
+    if (currentPage === '' || currentPage === 'home.html' || window.location.pathname === '/home') {
+        if (homeLink) {
+            homeLink.classList.add('text-yellow-500', 'font-bold', 'after:w-full', 'after:-translate-x-1/2'); 
+        }
+    } 
+    
+    if (currentPage === 'about' || currentPage === 'about.html' || window.location.pathname === '/about') {
+        if (aboutLink) {
+            aboutLink.classList.add('text-yellow-500', 'font-bold', 'after:w-full', 'after:-translate-x-1/2'); 
+        }
     }
 });
 
