@@ -132,33 +132,20 @@ document.getElementById('level').addEventListener('change', function() {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    // Retrieve stored values
     let storedLevel = localStorage.getItem("userLevel");
-    let storedGrade = localStorage.getItem("userGrade");
-    let storedStrand = localStorage.getItem("userStrand");
 
-    // Set Level (JHS, SHS, College)
     if (storedLevel) {
-        document.getElementById("level").value = storedLevel;
-        document.getElementById("level").dispatchEvent(new Event("change")); // Trigger population of grade
+        document.getElementById("level").dispatchEvent(new Event("change"));
     }
 
-    // Set Grade (7-10, 11-12, Department)
-    if (storedGrade) {
-        setTimeout(() => {
-            document.getElementById("grade").value = storedGrade;
-            document.getElementById("grade").dispatchEvent(new Event("change")); // Trigger population of strand/program
-        }, 100);
-    }
+    setTimeout(() => {
+        document.getElementById("grade").dispatchEvent(new Event("change"));
+    }, 100);
 
-    // Set Strand (SHS strands, College programs)
-    if (storedStrand) {
-        setTimeout(() => {
-            document.getElementById("strand").value = storedStrand;
-        }, 200);
-    }
+    setTimeout(() => {
+        document.getElementById("strand").dispatchEvent(new Event("change"));
+    }, 200);
 });
-
 
 let globalName = "";
 let globalAge = "";

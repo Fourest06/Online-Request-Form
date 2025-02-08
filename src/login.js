@@ -55,6 +55,6 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     if (validEmail && validPassword) {
         globalEmail = emailText; 
         localStorage.setItem("userEmail", globalEmail); 
-        window.location.href = "../Info/Info.html"; 
+        window.location.href = "Info/Info.html"; 
     }
 });

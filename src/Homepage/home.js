@@ -55,7 +55,7 @@ confirmLogout.addEventListener('click', function() {
     localStorage.removeItem('userLevel');
     localStorage.removeItem('userGrade');
     localStorage.removeItem('userStrand');
-    window.location.href = '../Login/login.html';
+    window.location.href = '../index.html';
 });
 
 // Cancel logout action
