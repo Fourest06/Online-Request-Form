@@ -16,13 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (currentPage === '/' || currentPage.includes('home')) {
         if (homeLink) {
-            homeLink.classList.add('text-yellow-500', 'font-bold', '[&::after]:w-full', '[&::after]:-translate-x-1/2');
+            homeLink.classList.add('text-yellow-500', 'font-bold', 'after:w-full', 'after:-translate-x-1/2');
         }
     } 
     
     if (currentPage.includes('about')) {
         if (aboutLink) {
-            aboutLink.classList.add('text-yellow-500', 'font-bold', '[&::after]:w-full', '[&::after]:-translate-x-1/2');
+            aboutLink.classList.add('text-yellow-500', 'font-bold', 'after:w-full', 'after:-translate-x-1/2');
         }
     }
 });
