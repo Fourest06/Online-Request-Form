@@ -301,7 +301,7 @@ function sendEmail(userDetails, documentList, totalItemsCount, totalPriceAmount)
     const subject = `New transaction from ${userDetails.name}`;
 
     const templateParams = {
-        to_email: 'fourestglennmalinao@gmail.com',
+        to_email: 'alyssa_venisse_aro@bec.edu.ph',
         reply_to: userDetails.email,
         user_name: userDetails.name,
         user_email: userDetails.email,
