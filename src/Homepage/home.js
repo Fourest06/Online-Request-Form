@@ -12,20 +12,17 @@ const globalStrand = localStorage.getItem("userStrand");
 document.addEventListener('DOMContentLoaded', () => {
     const homeLink = document.getElementById('home-link');
     const aboutLink = document.getElementById('about-link');
-    let currentPage = window.location.pathname.split("/").pop();
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html'; 
 
-    if (currentPage === '/' || currentPage.includes('home')) {
-        if (homeLink) {
-            homeLink.classList.add('text-yellow-500', 'font-bold', 'active-link');
-        }
+    if (currentPage === 'index.html' || currentPage.includes('home')) {
+        homeLink?.classList.add('text-yellow-500', 'font-bold', 'active-link');
     } 
-    
+
     if (currentPage.includes('about')) {
-        if (aboutLink) {
-            aboutLink.classList.add('text-yellow-500', 'font-bold', 'active-link');
-        }
+        aboutLink?.classList.add('text-yellow-500', 'font-bold', 'active-link');
     }
 });
+
 
 // Menu Icon
 const menuBtn = document.getElementById('menu-btn');
