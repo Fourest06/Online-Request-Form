@@ -3012,4 +3012,6 @@
 }
 @property --tw-content {
   syntax: "*";
-  initial-val
+  initial-value: "";
+  inherits: false;
+}
