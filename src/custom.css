@@ -1,0 +1,16 @@
+#menu-btn span {
+    transition: transform 0.3s ease, margin 0.3s ease;
+}
+
+#menu-btn.open span:nth-child(1) {
+    transform: rotate(45deg) translateY(16px);
+}
+
+#menu-btn.open span:nth-child(2) {
+    opacity: 0; 
+    width: 0;
+}
+
+#menu-btn.open span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-16px); 
+}
