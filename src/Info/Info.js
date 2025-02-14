@@ -155,7 +155,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-
 let globalName = "";
 let globalAge = "";
 let globalGender = "";

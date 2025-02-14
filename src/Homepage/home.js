@@ -268,9 +268,10 @@ document.addEventListener("DOMContentLoaded", function () {
             pageOverlay.classList.add("hidden");
             sendEmailWithDetails(gcashNumber, referenceNumber);
         }
-    });    
+    });   
 });
 
+// Email
 function sendEmailWithDetails(gcashNumber, referenceNumber) {
     const userDetails = {
         email: globalEmail,
