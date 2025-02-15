@@ -187,6 +187,35 @@ document.getElementById('resetBtn').addEventListener('click', function() {
     
 });
 
+// Clear
+function clearForm() {
+    const formFields = [
+        'form137JHS', 'form137SHS', 'form138JHS', 'form138SHS', 'formREG', 'certCOC', 'certCCG', 'certCGSHS', 'certCGC', 'certCE',
+        'ctcform137JHS', 'ctcform137SHS', 'ctcform138JHS', 'ctcform138SHS', 'ctcformREG', 'ctccertCOC', 'ctccertCCG', 'ctccertCGSHS',
+        'ctccertCGC', 'ctccertCE'
+    ];
+
+    formFields.forEach(id => {
+        const element = document.getElementById(id);
+        if (element) element.innerText = '0';
+    });
+
+    document.getElementById('otherForm').value = '';
+    document.getElementById('otherCertificate').value = '';
+    document.getElementById('ctcotherCTC').value = '';
+
+    document.getElementById('total-items').innerText = '0';
+    document.getElementById('totalPriceDisplay').innerText = '0.00';
+    totalPrice = 0;
+    totalItems = 0;
+
+    for (const key in documentTracker) {
+        if (documentTracker.hasOwnProperty(key)) {
+            delete documentTracker[key];
+        }
+    }
+}
+
 // Payment
 document.addEventListener("DOMContentLoaded", function () {
     const openModalBtn = document.getElementById("openModalBtn");
@@ -335,24 +364,22 @@ function sendEmail(userDetails, documentList, totalItemsCount, totalPriceAmount)
         total_price: totalPriceAmount,
     };
 
-    emailjs.send('service_tp8xecf', 'template_g1jich8', templateParams)
-    .then(response => {
-        console.log('Email sent successfully', response);
-    }).catch(error => {
-        console.error('Error sending email', error);
+    Promise.all([
+        emailjs.send('service_tp8xecf', 'template_g1jich8', templateParams),
+        emailjs.send('service_tp8xecf', 'template_171kcpb', userParams)
+    ])
+    .then(() => {
+        console.log('Emails sent successfully');
+        document.getElementById("successModal").classList.remove("hidden");
+        document.getElementById("pageOverlay").classList.remove("hidden");
+        clearForm();
+    })
+    .catch(error => {
+        console.error('Error sending emails', error);
     });
 
-    emailjs.send('service_tp8xecf', 'template_171kcpb', userParams)
-    .then(response => {
-        console.log('User confirmation email sent successfully', response);
-    }).catch(error => {
-        console.error('Error sending user confirmation email', error);
-    });
-
-    document.getElementById("successModal").classList.remove("hidden");
-    document.getElementById("pageOverlay").classList.remove("hidden");
     document.getElementById("closeModal").addEventListener("click", () => {
         document.getElementById("successModal").classList.add("hidden");
         document.getElementById("pageOverlay").classList.add("hidden");
-    });
+    }, { once: true });
 }
